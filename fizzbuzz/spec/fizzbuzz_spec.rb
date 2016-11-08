@@ -1,19 +1,18 @@
 require 'fizzbuzz'
-
 describe 'fizzbuzz' do
-  it 'returns "fizz" when passed 3 as an argument' do
+  it 'returns "fizz" when passed multiplication of 3' do
     expect(fizzbuzz(3)).to eq "fizz"
   end
 
-  it 'when passed number other than specified in the remaining tests, returns passed number' do
-    expect(fizzbuzz(7)).to eq 7
+  it 'returns passed number if argument is not divisible by 5 or 3' do
+    expect(fizzbuzz(8)).to eq 8
   end
 
-  it 'when passed number 5 multiplication as an argument, returns "buzz"' do
+  it 'returns "buzz" when passed multiplication of 5' do
     expect(fizzbuzz(5)).to eq "buzz"
   end
 
-  it 'returns "fizzbuzz" when passed multiplication of 15 as an argument' do
+  it 'returns "fizzbuzz" when passed multiplication of 15' do
     expect(fizzbuzz(15)).to eq "fizzbuzz"
   end
 
