@@ -16,9 +16,9 @@ end
 
 def fizzbuzz(number)
   if number == 0; number
-  elsif is_divisible_by?(number, 15) == true; "fizzbuzz"
-  elsif is_divisible_by?(number, 3) == true; "fizz"
-  elsif is_divisible_by?(number, 5) == true; "buzz"
+  elsif is_divisible_by?(number, 15); "fizzbuzz"
+  elsif is_divisible_by?(number, 3); "fizz"
+  elsif is_divisible_by?(number, 5); "buzz"
   else number
   end
 end
