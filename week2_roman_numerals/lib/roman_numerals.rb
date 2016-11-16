@@ -1,25 +1,32 @@
 def roman_numerals(number)
-numeral = ""
-double_digits = ["X", "L", "XC"]
-single_digits = ["I", "V", "IX"]
+  numeral = []
 
-  if number / 10 > 0
-    if number / 10 == 9
-      numeral += "XC"
-    elsif number / 10 > 5
-      numeral += "L" + ("X" * ((number/10) % 5))
-    elsif number / 10 == 5
-      numeral += "L"
-    elsif number / 10 == 4
-      numeral += "XL"
-    else numeral += "X" * (number / 10)
+  letters = [["I", "V", "X"], ["X", "L", "C"], ["C", "D", "M"], "M"]
+
+  digits = number.to_s.split("")
+  digits = digits.map {|digit| digit.to_i }
+
+  raise "Number can't be bigger than 9999." if number >= 10000
+  raise "Number has to be positive integer" if number <= 0
+  index = 0
+  n = 0
+  while digits != []
+    current = digits.last
+    array = letters[n]
+    if current >= 5
+      if current % 5 == 4
+        numeral << array[0] + array[2]
+      else numeral << array[1] + (array[0] * (current % 5))
+      end
+    else
+      if current % 5 == 4
+        numeral << array[0] + array[1]
+      else numeral << (array[0] * (current % 5))
+      end
     end
-  number -= (number / 10) * 10
+    digits.pop
+    n += 1
   end
-  if number == 9; numeral += "IX"
-  elsif number == 5; numeral += "V"
-  elsif (number > 5); numeral += "V" + ("I" * (number % 5))
-  elsif number == 4; numeral += "IV"
-  else numeral += "I" * number
-  end
+
+  numeral.reverse.join("")
 end

@@ -45,4 +45,20 @@ describe 'roman_numerals' do
     expect(roman_numerals(94)).to eq "XCIV"
   end
 
+  it "returns 'CCCL' if passed 350 as an argument" do
+    expect(roman_numerals(350)).to eq "CCCL"
+  end
+
+  it "returns 'CDIV' if passed 404 as an argument" do
+    expect(roman_numerals(404)).to eq "CDIV"
+  end
+
+  it "returns 'DCCLXXVII' if passed 777 as an argument" do
+    expect(roman_numerals(777)).to eq "DCCLXXVII"
+  end
+
+  it "returns 'MCMLXXXVIII' if passed 1988 as an argument" do
+    expect(roman_numerals(1988)).to eq "MCMLXXXVIII"
+  end
+
 end
